@@ -79,7 +79,7 @@ When our fraud prevention system detects a suspicious payment, the API’s respo
 
 > WARNING
 > 
-> Attention
+> Attention 
 >
 > `cc_rejected_other_reason` is a status given by the bank that doesn’t mention the reason of the rejection, but indicates a fraude risk estimation. However, there may be other reasons why this status is returned. In case of doubt, it is recommended to choose other payment method to fulfill the transaction or to get in touch with the issuer bank institution.
 ```json
@@ -93,3 +93,10 @@ When our fraud prevention system detects a suspicious payment, the API’s respo
 }
 ```
 
+> WARNING
+> 
+> Attention
+>
+> In some cases, the `cc_rejected_high_risk` response may occur when two consecutive payments are made with the same items or with very similar parameters (such as identical `external_reference` or `items` values). This can trigger the anti-fraud engine, which may flag the attempt as a duplicate and reject it as a precaution. As a result, subsequent payments might be temporarily blocked.
+>
+> It is recommended to implement controls to avoid immediate retries using the same payment data.

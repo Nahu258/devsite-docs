@@ -84,7 +84,6 @@ Cuando los sistemas de prevención detectan un pago sospechoso, la respuesta de 
 > Atención
 >
 > La respuesta `cc_rejected_other_reason` es un status que proviene del banco emisor y, si bien no explicita el motivo de rechazo, se trata de una estimación de riesgo de fraude. Igualmente, hay otros motivos por los cuales este status puede ser devuelto. En caso de duda, es recomendable elegir otro medio de pago o ponerse en contacto con la entidad bancaria.
-
 ```json
  {
     "status": "rejected",
@@ -96,3 +95,10 @@ Cuando los sistemas de prevención detectan un pago sospechoso, la respuesta de 
 }
 ```
 
+> WARNING
+> 
+> Atención
+>
+> En algunos casos, la respuesta `cc_rejected_high_risk` puede aparecer cuando se intentan realizar dos pagos consecutivos con los mismos ítems o con parámetros similares (como `external_reference` o `items` idénticos). Esto puede hacer que el motor antifraude lo interprete como un intento duplicado y lo rechace por precaución, bloqueando todos los pagos posteriores temporalmente.
+>
+> Se recomienda implementar controles para evitar reintentos inmediatos con los mismos datos.

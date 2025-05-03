@@ -91,3 +91,10 @@ Quando o nosso sistema de prevenção de fraude detectar um pagamento suspeito, 
 }
 ```
 
+> WARNING
+> 
+> Atenção
+>
+> Em alguns casos, a resposta `cc_rejected_high_risk` pode ocorrer quando dois pagamentos consecutivos são realizados com os mesmos itens ou com parâmetros muito semelhantes (como valores em `external_reference` ou `items` idênticos). Isso pode acionar o motor antifraude, que pode interpretar a tentativa como duplicada e rejeitá-la por precaução. Como consequência, os pagamentos subsequentes podem ser temporariamente bloqueados.
+>
+> É recomendável implementar controles para evitar novas tentativas imediatas com os mesmos dados de pagamento.
