@@ -97,6 +97,6 @@ When our fraud prevention system detects a suspicious payment, the API’s respo
 > 
 > Attention
 >
-> In some cases, the `cc_rejected_high_risk` response may occur when two consecutive payments are made with the same items or with very similar parameters (such as identical `external_reference` or `items` values). This can trigger the anti-fraud engine, which may flag the attempt as a duplicate and reject it as a precaution. As a result, subsequent payments might be temporarily blocked.
+> In some cases, the `cc_rejected_high_risk` response may occur when two consecutive payments are made with the same items or with very similar parameters (such as identical `payer` and `items` values in both payments made). This can trigger the anti-fraud engine, which may flag the attempt as a duplicate and reject it as a precaution. As a result, subsequent payments might be temporarily blocked.
 >
 > It is recommended to implement controls to avoid immediate retries using the same payment data.
